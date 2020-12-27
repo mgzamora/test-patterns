@@ -1,2 +1,7 @@
-CREATE DATABASE IF NOT EXISTS testpattern;
-USE testpattern;
+CREATE DATABASE IF NOT EXISTS testapp;
+USE testapp;
+DROP TABLE IF EXISTS dummy;
+CREATE TABLE dummy (
+  `id` VARCHAR(36) NOT NULL,
+  `value` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
