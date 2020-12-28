@@ -1,14 +1,31 @@
 version: '3.1'
 
 services:
-
   db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
     ports:
       - "3308:3306"
     volumes:
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - backend
+  application:
+    build: .
+    ports:
+      - "3001:3001"
+    env_file:
+      - .dev.env
+    links:
+      - db
+    networks:
+      - backend
+    depends_on:
+      - db
+    command: 
+      ["./wait-for-it.sh", "db:3306", "-t", "30", "--", "npm", "run", "start"]
+networks:
+  backend:
+    driver: "bridge"
