@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { DummyEntity } from '../../repositories/entities/dummy.entity';
+import { QuoteEntity } from '../../repositories/entities/quote.entity';
 import { EnvironmentConfigModule } from '../environment-config/environment-config.module';
 import { EnvironmentConfigService } from '../environment-config/environment-config.service';
 
@@ -14,7 +14,7 @@ export const getTypeOrmModuleOptions = (environmentConfigService: EnvironmentCon
       username: databaseConfig.USERNAME,
       password: databaseConfig.PASSWORD,
       database: databaseConfig.NAME,
-      entities: [DummyEntity],
+      entities: [QuoteEntity],
       ssl: true,
     } as TypeOrmModuleOptions;
   };

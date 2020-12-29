@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { EnvironmentConfigModule } from '../config/environment-config/environment-config.module';
-import { DummyEntity } from './entities/dummy.entity';
+import { QuoteEntity } from './entities/quote.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfigModule } from '../config/typeorm/typeorm-config.module';
-import { TypeOrmDatabaseDummyRepository } from './typeorm-database-dummy.repository';
+import { TypeOrmDatabaseQuoteRepository } from './typeorm-database-quote.repository';
 
 @Module({
-  imports: [TypeOrmConfigModule, TypeOrmModule.forFeature([DummyEntity]), EnvironmentConfigModule],
-  providers: [TypeOrmDatabaseDummyRepository],
-  exports: [TypeOrmDatabaseDummyRepository],
+  imports: [TypeOrmConfigModule, TypeOrmModule.forFeature([QuoteEntity]), EnvironmentConfigModule],
+  providers: [TypeOrmDatabaseQuoteRepository],
+  exports: [TypeOrmDatabaseQuoteRepository],
 })
 export class RepositoriesModule {}

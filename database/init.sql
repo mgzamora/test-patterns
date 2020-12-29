@@ -1,7 +1,7 @@
-CREATE DATABASE IF NOT EXISTS testapp;
-USE testapp;
-DROP TABLE IF EXISTS dummy;
-CREATE TABLE dummy (
+CREATE DATABASE IF NOT EXISTS library;
+USE library;
+DROP TABLE IF EXISTS quote;
+CREATE TABLE quote (
   `id` VARCHAR(36) NOT NULL,
-  `value` VARCHAR(45) NULL,
+  `text` VARCHAR(45) NULL,
   PRIMARY KEY (`id`));

@@ -1,1 +1,0 @@
-export class InvalidDummyIdError extends Error {}

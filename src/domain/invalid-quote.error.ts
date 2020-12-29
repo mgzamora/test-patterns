@@ -1,0 +1,1 @@
+export class InvalidQuoteError extends Error {}

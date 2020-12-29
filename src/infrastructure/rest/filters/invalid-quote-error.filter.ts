@@ -1,11 +1,11 @@
 import { ArgumentsHost, Catch, ExceptionFilter, HttpStatus } from '@nestjs/common';
 import { HttpArgumentsHost } from '@nestjs/common/interfaces';
 import { Response } from 'express';
-import { InvalidDummyError } from '../../../domain/invalid-dummy.error';
+import { InvalidQuoteError } from '../../../domain/invalid-quote.error';
 
-@Catch(InvalidDummyError)
-export class InvalidDummyErrorFilter implements ExceptionFilter {
-  catch(exception: InvalidDummyError, host: ArgumentsHost): void {
+@Catch(InvalidQuoteError)
+export class InvalidQuoteErrorFilter implements ExceptionFilter {
+  catch(exception: InvalidQuoteError, host: ArgumentsHost): void {
     const ctx: HttpArgumentsHost = host.switchToHttp();
     const response: Response = ctx.getResponse<Response>();
     const status: HttpStatus = HttpStatus.BAD_REQUEST;
