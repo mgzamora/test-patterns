@@ -9,18 +9,16 @@ import { QuoteEntity } from './entities/quote.entity';
 export class TypeOrmDatabaseQuoteRepository implements QuoteRepository {
   constructor(@InjectRepository(QuoteEntity) private readonly quoteEntityRepository: Repository<QuoteEntity>) {}
 
-  async findAll(): Promise<Quote[]> {
+  async search(): Promise<Quote[]> {
     const foundQuoteEntities: QuoteEntity[] = await this.quoteEntityRepository.find();
     
     return foundQuoteEntities.map((quoteEntity: QuoteEntity) => this.toQuote(quoteEntity));
   }
 
-  async save(quote: Quote): Promise<Quote> {
+  async save(quote: Quote): Promise<void> {
     const quoteEntity: QuoteEntity = this.toQuoteEntity(quote);
 
-    const savedQuoteEntity: QuoteEntity = await this.quoteEntityRepository.save(quoteEntity);
-
-    return this.toQuote(savedQuoteEntity);
+    await this.quoteEntityRepository.save(quoteEntity);
   }
 
   private toQuote(quoteEntity: QuoteEntity): Quote {
