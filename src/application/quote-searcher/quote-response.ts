@@ -1,4 +1,4 @@
-import { Quote } from "../domain/quote";
+import { Quote } from "../../domain/quote";
 
 export class QuoteResponse {
     readonly id: string;
