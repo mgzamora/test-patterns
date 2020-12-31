@@ -3,5 +3,5 @@ USE library;
 DROP TABLE IF EXISTS quote;
 CREATE TABLE quote (
   `id` VARCHAR(36) NOT NULL,
-  `text` VARCHAR(45) NULL,
+  `text` VARCHAR(255) NULL,
   PRIMARY KEY (`id`));

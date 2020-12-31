@@ -14,7 +14,7 @@ services:
     depends_on:
       - db
     command: 
-      ["./wait-for-it.sh", "db:3306", "-t", "30", "--", "npm", "run", "test:e2e"]
+      ["./wait-for-it.sh", "db:3306", "-t", "30", "--", "npm", "test"]
 networks:
   backend:
     driver: "bridge"

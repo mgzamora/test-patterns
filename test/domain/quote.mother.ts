@@ -9,6 +9,10 @@ export class QuoteMother {
         return new Quote(id, text);
     }
 
+    static fromPrimitives(id: string, text: string): Quote {
+        return new Quote(QuoteIdMother.create(id), QuoteTextMother.create(text))
+    }
+
     static fromPartial(quote: Partial<Quote>): Quote {
         const id = quote.id || QuoteIdMother.random();
         const text = quote.id || QuoteTextMother.random();
