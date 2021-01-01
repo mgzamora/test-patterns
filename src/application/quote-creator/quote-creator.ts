@@ -12,9 +12,9 @@ export class QuoteCreator {
         const quoteText = new QuoteText(text);
         const qoute: Quote = new Quote(quoteId, quoteText);
 
-        const quote = await this.repository.find(quoteId);
+        const quoteResponse = await this.repository.find(quoteId);
 
-        if (quote) {
+        if (quoteResponse) {
             throw new QuoteAlreadyExistsError(id);
         }
 
