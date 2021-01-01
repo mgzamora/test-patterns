@@ -1,5 +1,5 @@
 import { QuoteRepository } from '../../domain/quote.repository';
-import { QuoteResponse } from './quote-response';
+import { QuoteResponse } from '../shared/quote-response';
 
 export class QuoteSearcher {
   constructor(private readonly quoteRepository: QuoteRepository) {}
