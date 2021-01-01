@@ -67,6 +67,7 @@
       "json",
       "ts"
     ],
+    "globalSetup": "./jest.config.ts",
     "rootDir": "./test",
     "testRegex": ".(spec|steps).ts$",
     "transform": {
