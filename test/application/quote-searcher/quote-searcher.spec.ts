@@ -1,6 +1,6 @@
 import { QuoteMockRepository } from '../../mocks/quote-mock.repository';
 import { QuoteSearcher } from "../../../src/application/quote-searcher/quote-searcher";
-import { QuoteResponse } from '../../../src/application/quote-searcher/quote-response';
+import { QuoteResponse } from '../../../src/application/shared/quote-response';
 import { Quote } from '../../../src/domain/quote';
 import { QuoteMother } from '../../domain/quote.mother';
 
