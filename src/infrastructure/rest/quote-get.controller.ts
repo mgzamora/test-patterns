@@ -8,8 +8,8 @@ import { UseCaseProxy } from '../use-case-proxy/use-case-proxy';
 @Controller('/api/quote')
 export class QuoteGetController {
   constructor(
-    @Inject(ProxyServicesDynamicModule.QOUTE_SEARCHER_PROXY_SERVICE) private readonly quoteSearcher: UseCaseProxy<QuoteSearcher>,
-    @Inject(ProxyServicesDynamicModule.QOUTE_FINDER_PROXY_SERVICE) private readonly quoteFinder: UseCaseProxy<QuoteFinder>,
+    @Inject(ProxyServicesDynamicModule.QUOTE_SEARCHER_PROXY_SERVICE) private readonly quoteSearcher: UseCaseProxy<QuoteSearcher>,
+    @Inject(ProxyServicesDynamicModule.QUOTE_FINDER_PROXY_SERVICE) private readonly quoteFinder: UseCaseProxy<QuoteFinder>,
   ) {}
 
   @Get('/')
