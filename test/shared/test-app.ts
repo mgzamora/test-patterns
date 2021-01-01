@@ -36,7 +36,7 @@ export class TestApp {
     }
 
     responseEmptyBody(): void {
-        expect(this.response.body).not.toBeDefined();
+        expect(this.response.body).toEqual({});
     }
 
 
