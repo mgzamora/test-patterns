@@ -19,8 +19,8 @@ export class QuoteMockRepository implements QuoteRepository {
         return this.quotes;
     }
 
-    async find(): Promise<Quote> {
-        this.mockFind();
+    async find(id: QuoteId): Promise<Quote> {
+        this.mockFind(id);
         return this.quote;
     }
 
@@ -39,6 +39,11 @@ export class QuoteMockRepository implements QuoteRepository {
     assertSearch() {
         expect(this.mockSearch).toHaveBeenCalled();
         expect(this.mockSearch).toHaveBeenCalledWith();
+    }
+
+    assertFind(expected: QuoteId) {
+        expect(this.mockFind).toHaveBeenCalled();
+        expect(this.mockFind).toHaveBeenCalledWith(expected);
     }
 
 }
