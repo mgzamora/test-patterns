@@ -4,6 +4,8 @@ import { Quote } from '../../domain/quote';
 import { QuoteRepository } from '../../domain/quote.repository';
 import { Repository } from 'typeorm';
 import { QuoteEntity } from './entities/quote.entity';
+import { QuoteId } from '../../domain/quote-id';
+import { Nullable } from 'src/domain/nullable';
 
 @Injectable()
 export class TypeOrmDatabaseQuoteRepository implements QuoteRepository {
@@ -21,8 +23,14 @@ export class TypeOrmDatabaseQuoteRepository implements QuoteRepository {
     await this.quoteEntityRepository.save(quoteEntity);
   }
 
-  private toQuote(quoteEntity: QuoteEntity): Quote {
-    return Quote.fromPrimitives(quoteEntity);
+  async find(id: QuoteId): Promise<Nullable<Quote>> {
+    const quoteId: string = id.value;
+    const quoteEntity : QuoteEntity = await this.quoteEntityRepository.findOne(quoteId); 
+    return this.toQuote(quoteEntity);
+  }
+
+  private toQuote(quoteEntity: QuoteEntity): Nullable<Quote> {
+    return quoteEntity ? Quote.fromPrimitives(quoteEntity) : null;
   }
 
   private toQuoteEntity(quote: Quote): QuoteEntity {
