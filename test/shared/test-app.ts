@@ -27,9 +27,18 @@ export class TestApp {
         this.response = await request(this.app.getHttpServer()).get(route);
     }
 
+    async putRequest(route: string, body: string) : Promise<void> {
+        this.response = await request(this.app.getHttpServer()).put(route).send(JSON.parse(body));
+    }
+
     responseBody(body: any): void {
         expect(this.response.body).toEqual(JSON.parse(body));
     }
+
+    responseEmptyBody(): void {
+        expect(this.response.body).not.toBeDefined();
+    }
+
 
     responseStatus = (status: string): void => {
         expect(this.response.status).toEqual(parseInt(status));
