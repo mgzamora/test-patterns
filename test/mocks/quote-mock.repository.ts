@@ -46,4 +46,8 @@ export class QuoteMockRepository implements QuoteRepository {
         expect(this.mockFind).toHaveBeenCalledWith(expected);
     }
 
+    assertSave(expected: Quote) {
+        expect(this.mockSave).toHaveBeenCalled();
+        expect(this.mockSave).toHaveBeenCalledWith(expected);
+    }
 }
