@@ -24,6 +24,6 @@ Feature: Obtain a quote by its id
         {
             "message": "The quote with id <01d2f0ce-8f47-56e4-9a9c-0f368406feb7> does not exist.",
             "name": "QouteNotFoundError",
-            "timestamp": "2021-01-01T00:00:00.000Z"
+            "timestamp": "2021-01-01T01:00:00.000Z"
         }
         """
